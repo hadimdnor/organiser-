@@ -13,13 +13,13 @@ def run_sql(sql)
   db.close
   return movie
 end
-get '/' do
-  members = run_sql("SELECT * FROM members ORDER BY id")   
+# get '/' do
+#   # members = run_sql("SELECT * FROM members ORDER BY id")   
 
-erb :index, locals: {
-    members: members
-  }
-end
+# erb :index, locals: {
+#     # members: members
+#   }
+# end
 
 get '/' do
   erb :index
