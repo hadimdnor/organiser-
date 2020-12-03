@@ -1,11 +1,23 @@
+
 <h1>Your To Do list </h1>
 <a href="/todopage/new">Add New To-do</a>
-
-<% todo.each do |x|%>
-    <h2>Date:<%= x["date"]%></h2>
-    <h2>Completion Date:<%= x["completion_date"]%></h2>
-    <h2>Task:<%= x["task"]%></h2>
+<div class = "todopage">
+    <% todos.each do |todo|%>
+    <a href="/todo/<%= todo['id']%>/edit">Edit</a>
+    <p>Date:<%= todo["date"]%></p>
+    <p>Completion Date:<%= todo["completion_date"]%></p>
+    <p>Task:<%= todo["task"]%></p>
+    
+    
+    
+    <form action="/todo/<%= todo['id'] %>" method="POST">
+        <input type="hidden" name="_method" value= "delete">
+        <button>Delete</button>
+    </form>
 
 <%end%>
+
+</div>
+
 
 <a href="/mainpage"><button>Back to main page</button></a>

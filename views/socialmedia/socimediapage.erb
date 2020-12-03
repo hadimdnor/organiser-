@@ -1,11 +1,11 @@
 <h1>Social Media list </h1>
 <a href="/socialmedia/new">add new social media</a>
 
-<% socimed.each do |x|%>
-    <h1><%= x["page_name"]%></h1>
-    <h1><%= x["page_url"]%></h1>
-    <h1><%= x["email_used"]%></h1>
-    <h1><%= x["password_hint"]%></h1>
+<% socimed.each do |socime|%>
+    <h1><%= socime["page_name"]%></h1>
+    <h1><%= socime["page_url"]%></h1>
+    <h1><%= socime["email_used"]%></h1>
+    <h1><%= socime["password_hint"]%></h1>
 
 <%end%>
 

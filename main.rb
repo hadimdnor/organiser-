@@ -72,17 +72,15 @@ end
 
 get '/mainpage' do
   mainpage = run_sql("SELECT * FROM members ORDER BY id")
+  # binding.pry
   erb :mainpage, locals:{
     mainpage: mainpage
   }
 end
 
 
-get '/mainpage' do
-erb :mainpage
-end
 
-post '/login' do
+post '/sessions' do
   email= params["email"]
   password = params["password"]
   
@@ -90,7 +88,7 @@ post '/login' do
   user = user_found(users)
 
   if user && BCrypt::Password.new(user['password_digest']) == params['password']
-    session[:user_id]=user['id']
+    session[:members_id]=user['id']
     
     redirect '/mainpage'
   else
@@ -98,7 +96,14 @@ post '/login' do
   end
 end
 
+delete '/sessions' do
+  session[:user_id] = nil
+  redirect '/'
+end
 
+get 'login' do
+  erb :login
+end
 
 
 require_relative 'controllers/family_controller'

@@ -1,4 +1,4 @@
-CREATE TABLE members (id SERIAL PRIMARY KEY, name TEXT, email TEXT, password_digest TEXT, address TEXT, contact_num INTEGER, );
+CREATE TABLE members (id SERIAL PRIMARY KEY, name TEXT, email TEXT, password_digest TEXT, address TEXT, contact_num TEXT);
 
 CREATE TABLE to_do (id SERIAL PRIMARY KEY, date TEXT, completion_date TEXT, task TEXT);
 

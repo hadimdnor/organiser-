@@ -1,32 +1,60 @@
-<h1>Welcome to your de TAREAS : Hub to organized your life</h1>
+
+<style>
+    h1{
+        
+
+    }
+
+    .logout{
+        top: 3px;
+        right: 5px;
+        position: absolute;
+        font-size: 12px;
+        border-radius: 40px;
+        background: linear-gradient(90deg,#575858,#93e9f7);
+        border: none;
+        
+    }
+
+</style>
 
 
-
-    <% if logged_in? %>
-        <h3><%= current_user['name']%><h2>Profile</h2></h3>
-        <form action="/sessions" method="POST">
-             <input type="hidden" name="_method" value="delete">
-            <button>Logout</button>
-        </form>
-    <% end %>
 <div class = "mainpage">
-    <% mainpage.each do |x|%>
-    <h1>Name :<%= x["name"]%></h1>
-    <h1>Email:<%= x["email"]%></h1>
-    <h1>Address:<%= x["address"]%></h1>
-    <h1>Contact Number:<%= x["contact_num"]%></h1>
-    <%end%>
+    
+
+        <% if logged_in? %>
+            <h2><%= current_user['name']%> Profile</h2>
+            <form action="/sessions" method="POST">
+                <input type="hidden" name="_method" value="delete">
+                <button class = "logout">Logout</button>
+            </form>
+        <% end %>
+        <div class = "heading">
+            <h1>Welcome to your de TAREAS: </h1>
+            <h1>Hub to organised your life</h1>
+        </div>
+        
+
+        <div class = "content">
+            <% mainpage.each do |x|%>
+            <h1>Name :<%= x["name"]%></h1>
+            <h1>Email:<%= x["email"]%></h1>
+            <h1>Address:<%= x["address"]%></h1>
+            <h1>Contact Number:<%= x["contact_num"]%></h1>
+            <%end%>
+        </div>
+        <div class = "thumbnails">
+            <a href="/todopage"><button>To-Do</button></a>
+            <a href="/socimediapage"><button>Social Media</button></a>
+            <a href="/quotepage"><button>Quotes</button></a>
+            <a href="/financialpage"><button>Financial</button></a>
+            <a href="/familypage"><button>Family</button></a>
+            
+        </div>
+       
+
 </div>
-    
 
-
-    
-    <a href="/todopage"><button>To-Do</button></a>
-    <a href="/socimediapage"><button>Social Media</button></a>
-    <a href="/quotepage"><button>Quotes</button></a>
-    <a href="/financialpage"><button>Financial</button></a>
-    <a href="/familypage"><button>Family</button></a>
-    <a href="/login"></a><button>Sign Out</button>
 
 
 

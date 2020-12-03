@@ -1,0 +1,10 @@
+<h1>Edit your to-do list</h1>
+
+<form action="/socimediapage/<%= todo_item['id']%>" method="POST">
+    <input type="hidden" name="_method" value= "patch">
+    <p>Date: <input type="text" name="date" value="<%= todo_item['date']%>"></p>
+    <p>Completion Date: <input type="text" name="completion_date" value="<%= todo_item['completion_date']%>"></p>
+    <p>Task: <input type="text" name="task" value="<%= todo_item['task']%>"></p>
+    <button>update To-do List</button>
+
+</form>
