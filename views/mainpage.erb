@@ -9,14 +9,15 @@
             <button>Logout</button>
         </form>
     <% end %>
-
+<div class = "mainpage">
     <% mainpage.each do |x|%>
     <h1>Name :<%= x["name"]%></h1>
     <h1>Email:<%= x["email"]%></h1>
     <h1>Address:<%= x["address"]%></h1>
     <h1>Contact Number:<%= x["contact_num"]%></h1>
-
     <%end%>
+</div>
+    
 
 
     
@@ -25,8 +26,7 @@
     <a href="/quotepage"><button>Quotes</button></a>
     <a href="/financialpage"><button>Financial</button></a>
     <a href="/familypage"><button>Family</button></a>
-    
-    <a href="/index"></a><button>Sign Out</button>
+    <a href="/login"></a><button>Sign Out</button>
 
 
 
