@@ -1,0 +1,15 @@
+<h1>Your Financial Manager </h1>
+<a href="/financialpage/new">Add New Financial</a>
+
+<% financial.each do |x|%>
+    <h1>Date:<%= x["date"]%></h1>
+    <h1>Month:<%= x["month"]%></h1>
+    <h1>Monthly Budget:<%= x["monthly_budget"]%></h1>
+    <h1>Daily Budget:<%= x["daily_budget"]%></h1>
+    <h1>Expanses:<%= x["expanses"]%></h1>
+    <h1>Utility Bill:<%= x["utility_bill"]%></h1>
+    <h1>Banking Informationt:<%= x["banking_information"]%></h1>
+
+<%end%>
+
+<a href="/mainpage"><button>Back to main page</button></a>

@@ -1,0 +1,11 @@
+<h1>Your Quote list </h1>
+<a href="/quote/new">Add New Quote</a>
+
+<% quote.each do |x|%>
+    <h1>Date:<%= x["date"]%></h1>
+    <h1>Life Quote:<%= x["life_quote"]%></h1>
+    <h1>Url:<%= x["image"]%></h1>
+
+<%end%>
+
+<a href="/login"><button>Back to main page</button></a>

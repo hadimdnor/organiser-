@@ -1,0 +1,12 @@
+<h1>Social Media list </h1>
+<a href="/socialmedia/new">add new social media</a>
+
+<% socimed.each do |x|%>
+    <h1><%= x["page_name"]%></h1>
+    <h1><%= x["page_url"]%></h1>
+    <h1><%= x["email_used"]%></h1>
+    <h1><%= x["password_hint"]%></h1>
+
+<%end%>
+
+<a href="/mainpage"><button>Back to main page</button></a>

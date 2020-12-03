@@ -1,0 +1,14 @@
+<h1>Your Family Members </h1>
+<a href="/family/new">Add New Family Members</a>
+
+<% family.each do |x|%>
+    <h1>Name:<%= x["name"]%></h1>
+    <h1>Relationship:<%= x["relationship"]%></h1>
+    <h1>Birth Day:<%= x["birth_date"]%></h1>
+    <h1>Address:<%= x["address"]%></h1>
+    <h1>Contact Number:<%= x["contact_num"]%></h1>
+
+
+<%end%>
+
+<a href="/login"><button>Back to main page</button></a>

@@ -1,0 +1,11 @@
+<h1>Your To Do list </h1>
+<a href="/todopage/new">Add New To-do</a>
+
+<% todo.each do |x|%>
+    <h2>Date:<%= x["date"]%></h2>
+    <h2>Completion Date:<%= x["completion_date"]%></h2>
+    <h2>Task:<%= x["task"]%></h2>
+
+<%end%>
+
+<a href="/mainpage"><button>Back to main page</button></a>
