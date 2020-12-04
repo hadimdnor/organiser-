@@ -1,11 +1,17 @@
 <h1>Your Quote list </h1>
 <a href="/quote/new">Add New Quote</a>
 
-<% quote.each do |x|%>
-    <h1>Date:<%= x["date"]%></h1>
-    <h1>Life Quote:<%= x["life_quote"]%></h1>
-    <h1>Url:<%= x["image"]%></h1>
+<% quotes.each do |quote|%>
+    <p><a href="/quote/<%= quote['id']%>/edit">Edit</a></p>
+    <p>Date:<%= quote["date"]%></p>
+    <p>Life Quote:<%= quote["life_quote"]%></p>
+    <p>Url:<%= quote["image"]%></p>
 
+    <form action="/quote/<%= quote['id'] %>" method = "POST">
+    <input type="hidden" name="_method" value="delete">
+    <button>Delete</button>
+    </form>
+    
 <%end%>
 
 <a href="/mainpage"><button>Back to main page</button></a>

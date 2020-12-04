@@ -1,10 +1,19 @@
-<h1>Edit your to-do list</h1>
+<h1>Edit your Social Media List</h1>
 
-<form action="/socimediapage/<%= todo_item['id']%>" method="POST">
-    <input type="hidden" name="_method" value= "patch">
-    <p>Date: <input type="text" name="date" value="<%= todo_item['date']%>"></p>
-    <p>Completion Date: <input type="text" name="completion_date" value="<%= todo_item['completion_date']%>"></p>
-    <p>Task: <input type="text" name="task" value="<%= todo_item['task']%>"></p>
-    <button>update To-do List</button>
+<form action="/socimed/<%=socimed_item['id']%>" method="POST">
+<input type="hidden" name="_method" value="patch">
+    
+    <p>Web Page :<input type="text" name="page_name" value = "<%= socimed_item[
+    "page_name"]%>"></p>
+    <p>Page Url :<input type="text" name="page_url" value = "<%= socimed_item[
+    "page_url"]%>"></p>
+    <p>Email : <input type="text" name="email_used" value = "<%= socimed_item[
+    "email_used"]%>"></p>
+    <p>Password Hint: <input type="text" name="password_hint" value = "<%= socimed_item[
+    "password_hint"]%>"></p>
+    
+    
+    
+    <button>Update Social Media</button>
 
 </form>

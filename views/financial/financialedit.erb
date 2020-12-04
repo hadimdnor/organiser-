@@ -1,0 +1,14 @@
+<h1>Edit your financial</h1>
+
+<form action="/financial/<%= financial_item['id']%>" method="POST">
+    <input type="hidden" name="_method" value= "patch">
+    <p>Date: <input type="text" name="date" value="<%= financial_item['date']%>"></p>
+    <p>Month: <input type="text" name="month" value="<%= financial_item['month']%>"></p>
+    <p>Monthly Budget: <input type="text" name="monthly_budget" value="<%= financial_item['monthly_budget']%>"></p>
+    <p>Daily Budget: <input type="text" name="daily_budget" value="<%= financial_item['daily_budget']%>"></p>
+    <p>Expanses: <input type="text" name="expanses" value="<%= financial_item['expanses']%>"></p>
+    <p>Utility Bill: <input type="text" name="utility_bill" value="<%= financial_item['utility_bill']%>"></p>
+    <p>Banking Information: <input type="text" name="banking_information" value="<%= financial_item['banking_information']%>"></p>
+    <button>update Financial List</button>
+
+</form>

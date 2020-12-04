@@ -1,0 +1,10 @@
+<h1>Edit your quote list</h1>
+
+<form action="/quote/<%= quote_item['id']%>" method="POST">
+    <input type="hidden" name="_method" value= "patch">
+    <p>Date: <input type="text" name="date" value="<%= quote_item['date']%>"></p>
+    <p>Life Quote: <input type="text" name="life_quote" value="<%= quote_item['life_quote']%>"></p>
+    <p>Image: <input type="text" name="image" value="<%= quote_item['image']%>"></p>
+    <button>update quote List</button>
+
+</form>

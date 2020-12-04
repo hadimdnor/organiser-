@@ -18,9 +18,37 @@ get '/socimed' do
   end
   
   get '/socimediapage' do
-    socimed = run_sql("SELECT * FROM social_network ORDER BY id")
+    socimeds = run_sql("SELECT * FROM social_network ORDER BY id")
     erb :'/socialmedia/socimediapage', locals:{
-      socimed: socimed
+      socimeds: socimeds
     }
   end
+
+  delete '/socimed/:id' do
+    socimed_id = params['id']
+    run_sql("DELETE FROM  social_network WHERE id = #{socimed_id} ")
+
+    redirect '/socimediapage'
+  end
   
+get '/socimed/:id/edit' do
+    socimed_id = params['id']
+    socimed = run_sql("SELECT * FROM social_network WHERE id = #{socimed_id}")
+    socimed_item = socimed[0]
+    erb :'/socialmedia/socialmediaedit', locals:{
+      socimed_item: socimed_item
+    }
+end
+
+patch '/socimed/:id' do
+    socimed_id = params['id']
+    page = params['page_name']
+    url = params['page_url']
+    email = params['email_used']
+    password = params['password_hint']
+
+
+    run_sql("UPDATE social_network SET page_name ='#{page}',page_url ='#{url}',email_used='#{email}',password_hint='#{password}'")
+
+    redirect '/socimediapage'
+end

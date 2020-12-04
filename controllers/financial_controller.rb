@@ -1,7 +1,7 @@
 get '/financialpage' do
-    financial = run_sql("SELECT * FROM financial ORDER BY id")
+    financials = run_sql("SELECT * FROM financial ORDER BY id")
     erb :'/financial/financialpage', locals:{
-      financial: financial
+      financials: financials
     }
   end
   
@@ -24,4 +24,35 @@ get '/financialpage' do
 
   get '/financial' do
     erb :'/financial/financial'
+  end
+
+  delete '/financial/:id' do
+    financial_id = params['id']
+    run_sql("DELETE FROM financial WHERE id=#{financial_id}")
+    
+    redirect '/financialpage'
+  end
+
+  get '/financial/:id/edit' do
+    financial_id = params['id']
+    financial = run_sql("SELECT * FROM financial WHERE id = #{financial_id}")
+    financial_item = financial[0]
+    erb :'/financial/financialedit', locals:{
+      financial_item: financial_item
+    }
+  end
+
+  patch '/financial/:id' do
+    financial_id = params['id']
+    date = params['date']
+    month = params['month']
+    monthly_budget = params['monthly_budget']
+    daily_budget = params['daily_budget']
+    expanses = params['expanses']
+    utility_bill = params['utility_bill']
+    banking_information = params['banking_information']
+
+    run_sql("UPDATE financial SET date ='#{date}',month ='#{month}',monthly_budget=#{monthly_budget},daily_budget=#{daily_budget}, expanses=#{expanses},utility_bill=#{utility_bill},banking_information =#{banking_information} ")
+
+    redirect '/financialpage'
   end

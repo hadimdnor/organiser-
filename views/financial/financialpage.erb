@@ -1,15 +1,20 @@
 <h1>Your Financial Manager </h1>
 <a href="/financialpage/new">Add New Financial</a>
 
-<% financial.each do |x|%>
-    <h1>Date:<%= x["date"]%></h1>
-    <h1>Month:<%= x["month"]%></h1>
-    <h1>Monthly Budget:<%= x["monthly_budget"]%></h1>
-    <h1>Daily Budget:<%= x["daily_budget"]%></h1>
-    <h1>Expanses:<%= x["expanses"]%></h1>
-    <h1>Utility Bill:<%= x["utility_bill"]%></h1>
-    <h1>Banking Informationt:<%= x["banking_information"]%></h1>
-
+<% financials.each do |financial|%>
+    <p><a href="/financial/<%= financial['id']%>/edit">Edit</a></p>
+    <p>Date:<%= financial["date"]%></p>
+    <p>Month:<%= financial["month"]%></p>
+    <p>Monthly Budget:<%= financial["monthly_budget"]%></p>
+    <p>Daily Budget:<%= financial["daily_budget"]%></p>
+    <p>Expanses:<%= financial["expanses"]%></p>
+    <p>Utility Bill:<%= financial["utility_bill"]%></p>
+    <p>Banking Informationt:<%= financial["banking_information"]%></p>
+    <form action="/financial/<%= financial['id'] %>" method="POST">
+    <input type="hidden" name="_method" value="delete">
+        <button>Delete</button>
+    </form>
+    
 <%end%>
 
 <a href="/mainpage"><button>Back to main page</button></a>

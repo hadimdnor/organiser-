@@ -1,0 +1,13 @@
+<h1>Edit your family</h1>
+
+<form action="/family/<%= family_item['id']%>" method="POST">
+    <input type="hidden" name="_method" value= "patch">
+    <p>Name: <input type="text" name="name" value="<%= family_item['name']%>"></p>
+    <p>Relationship: <input type="text" name="relationship" value="<%= family_item['relationship']%>"></p>
+    <p>Birth Day: <input type="text" name="birth_date" value="<%= family_item['birth_date']%>"></p>
+    <p>Address: <input type="text" name="address" value="<%= family_item['address']%>"></p>
+    <p>Contact Number: <input type="text" name="contact_num" value="<%= family_item['contact_num']%>"></p>
+    
+    <button>update Family List</button>
+
+</form>

@@ -1,12 +1,18 @@
 <h1>Social Media list </h1>
 <a href="/socialmedia/new">add new social media</a>
 
-<% socimed.each do |socime|%>
-    <h1><%= socime["page_name"]%></h1>
-    <h1><%= socime["page_url"]%></h1>
-    <h1><%= socime["email_used"]%></h1>
-    <h1><%= socime["password_hint"]%></h1>
+<% socimeds.each do |socimed|%>
+    <p><a href="/socimed/<%= socimed['id']%>/edit">Edit</a></p>
+   
+    <p>Page : <%= socimed["page_name"]%></p>
+    <p>Page URL :<%= socimed["page_url"]%></p>
+    <p>Email Used :<%= socimed["email_used"]%></p>
+    <p>Password Hint:<%= socimed["password_hint"]%></p>
 
+        <form action="/socimed/<%=socimed['id'] %>" method="POST">
+            <input type="hidden" name="_method" value="delete">
+            <button>Delete</button>
+        </form>
 <%end%>
 
 <a href="/mainpage"><button>Back to main page</button></a>
