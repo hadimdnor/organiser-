@@ -6,7 +6,8 @@ get '/todo/todo' do
       date= params["date"]
       task = params["task"]
       completion = params["completion_date"]
-      run_sql("INSERT INTO to_do (date, task, completion_date) VALUES ('#{date}','#{task}','#{completion}')")
+      run_sql("INSERT INTO to_do (date, task, completion_date) VALUES ($1, $2, $3)", [date,task,completion])
+      
       redirect '/todopage'
    
   end
